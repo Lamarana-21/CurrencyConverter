@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="turquoise_top">#2BB8E8</color>
+    <color name="key_digit">#1BA6C9</color>
+    <color name="key_c">#F0727A</color>
+</resources>

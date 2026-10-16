@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Currency Converter</string>
+    <string name="titre">Currency Converter</string>
+    <string name="convertir">Convertir</string>
+    <string name="veuillez_saisir_montant">Veuillez saisir un montant</string>
+
+    <string-array name="devises">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>TND</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>CAD</item>
+    </string-array>
+</resources>

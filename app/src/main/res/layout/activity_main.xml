@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Top Zone (Display area, turquoise background #2BB8E8) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/turquoise_top"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/guidelineTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titre"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Source Currency Spinner -->
+        <Spinner
+            android:id="@+id/spDeviseSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitre" />
+
+        <!-- Amount TextView -->
+        <TextView
+            android:id="@+id/tvMontant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="44sp"
+            app:layout_constraintBottom_toBottomOf="@id/spDeviseSource"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/spDeviseSource"
+            app:layout_constraintTop_toTopOf="@id/spDeviseSource" />
+
+        <!-- Invert Button as TextView with Unicode arrow symbol -->
+        <TextView
+            android:id="@+id/btnInverser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_circle"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="↕"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/spDeviseCible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spDeviseSource" />
+
+        <!-- Target Currency Spinner -->
+        <Spinner
+            android:id="@+id/spDeviseCible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnInverser" />
+
+        <!-- Result TextView -->
+        <TextView
+            android:id="@+id/tvResultat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="44sp"
+            app:layout_constraintBottom_toBottomOf="@id/spDeviseCible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/spDeviseCible"
+            app:layout_constraintTop_toTopOf="@id/spDeviseCible" />
+
+        <!-- Convert Button -->
+        <Button
+            android:id="@+id/btnConvertir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/convertir"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <!-- Bottom Zone (Numeric Keypad LinearLayout) -->
+    <LinearLayout
+        android:id="@+id/tableLayoutKeypad"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop">
+
+        <!-- Row 1: 7, 8, 9 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn7"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="7"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn8"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn9"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="9"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <!-- Row 2: 4, 5, 6 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn4"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="4"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="5"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn6"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="6"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <!-- Row 3: 1, 2, 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn3"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="3"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <!-- Row 4: C, 0, . -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnC"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="C"
+                android:textColor="@color/key_c"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn0"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="0"
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btnDot"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="."
+                android:textColor="@color/key_digit"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
